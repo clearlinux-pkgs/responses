@@ -1,0 +1,7 @@
+# This file contains runtime requirements that get picked up but are
+# undesirable. One entry per line, no whitespace.
+coverage
+flake8
+pytest
+pytest-cov
+python-mock
