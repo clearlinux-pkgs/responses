@@ -4,7 +4,7 @@
 #
 Name     : responses
 Version  : 0.10.5
-Release  : 3
+Release  : 4
 URL      : https://files.pythonhosted.org/packages/c9/3b/bea0bfc243072a3d910befae4d1fb585276260abcac2a62109e01064c551/responses-0.10.5.tar.gz
 Source0  : https://files.pythonhosted.org/packages/c9/3b/bea0bfc243072a3d910befae4d1fb585276260abcac2a62109e01064c551/responses-0.10.5.tar.gz
 Summary  : A utility library for mocking out the `requests` Python library.
@@ -14,7 +14,6 @@ Requires: responses-license = %{version}-%{release}
 Requires: responses-python = %{version}-%{release}
 Requires: responses-python3 = %{version}-%{release}
 Requires: cookies
-Requires: pytest-localserver
 Requires: requests
 Requires: six
 BuildRequires : Werkzeug
@@ -29,7 +28,10 @@ BuildRequires : requests
 BuildRequires : six
 
 %description
+Responses
 =========
+..  image:: https://travis-ci.org/getsentry/responses.svg?branch=master
+:target: https://travis-ci.org/getsentry/responses
 
 %package license
 Summary: license components for the responses package.
@@ -65,7 +67,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1549667433
+export SOURCE_DATE_EPOCH=1551038443
 export MAKEFLAGS=%{?_smp_mflags}
 python3 setup.py build
 
@@ -75,7 +77,6 @@ export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 PYTHONPATH=%{buildroot}/usr/lib/python3.7/site-packages python3 setup.py test
 %install
-export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/responses
 cp LICENSE %{buildroot}/usr/share/package-licenses/responses/LICENSE
