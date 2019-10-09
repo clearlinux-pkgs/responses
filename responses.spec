@@ -4,7 +4,7 @@
 #
 Name     : responses
 Version  : 0.10.5
-Release  : 6
+Release  : 7
 URL      : https://files.pythonhosted.org/packages/c9/3b/bea0bfc243072a3d910befae4d1fb585276260abcac2a62109e01064c551/responses-0.10.5.tar.gz
 Source0  : https://files.pythonhosted.org/packages/c9/3b/bea0bfc243072a3d910befae4d1fb585276260abcac2a62109e01064c551/responses-0.10.5.tar.gz
 Summary  : A utility library for mocking out the `requests` Python library.
@@ -26,12 +26,10 @@ BuildRequires : pytest-cov
 BuildRequires : pytest-localserver
 BuildRequires : requests
 BuildRequires : six
+Patch1: 0001-Fix-testcase-test_assert_all_requests_are_fired-fail.patch
 
 %description
-Responses
 =========
-..  image:: https://travis-ci.org/getsentry/responses.svg?branch=master
-:target: https://travis-ci.org/getsentry/responses
 
 %package license
 Summary: license components for the responses package.
@@ -61,13 +59,19 @@ python3 components for the responses package.
 
 %prep
 %setup -q -n responses-0.10.5
+%patch1 -p1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1551038443
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1570664144
+export GCC_IGNORE_WERROR=1
+export CFLAGS="$CFLAGS -fno-lto "
+export FCFLAGS="$CFLAGS -fno-lto "
+export FFLAGS="$CFLAGS -fno-lto "
+export CXXFLAGS="$CXXFLAGS -fno-lto "
 export MAKEFLAGS=%{?_smp_mflags}
 python3 setup.py build
 
@@ -77,6 +81,7 @@ export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 PYTHONPATH=%{buildroot}/usr/lib/python3.7/site-packages python3 setup.py test
 %install
+export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/responses
 cp LICENSE %{buildroot}/usr/share/package-licenses/responses/LICENSE
