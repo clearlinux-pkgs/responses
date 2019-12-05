@@ -4,7 +4,7 @@
 #
 Name     : responses
 Version  : 0.10.7
-Release  : 10
+Release  : 11
 URL      : https://files.pythonhosted.org/packages/df/be/e3c18220cf8ed5ace9ac3e2de28a46e4994ddefe9e61fe3b3971a1bc20fe/responses-0.10.7.tar.gz
 Source0  : https://files.pythonhosted.org/packages/df/be/e3c18220cf8ed5ace9ac3e2de28a46e4994ddefe9e61fe3b3971a1bc20fe/responses-0.10.7.tar.gz
 Summary  : A utility library for mocking out the `requests` Python library.
