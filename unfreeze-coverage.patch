@@ -1,16 +1,3 @@
-diff --git a/responses.egg-info/requires.txt b/responses.egg-info/requires.txt
-index 08a5d32..99d9962 100644
---- a/responses.egg-info/requires.txt
-+++ b/responses.egg-info/requires.txt
-@@ -8,7 +8,7 @@ mock
- cookies
- 
- [tests]
--coverage<5.0.0,>=3.7.1
-+coverage
- pytest-cov
- pytest-localserver
- flake8
 diff --git a/setup.py b/setup.py
 index 24a2c17..0e5a30f 100644
 --- a/setup.py
@@ -18,7 +5,7 @@ index 24a2c17..0e5a30f 100644
 @@ -29,7 +29,7 @@ install_requires = [
  tests_require = [
      "pytest>=4.6,<5.0; python_version < '3.5'",
-     "pytest; python_version >= '3.5'",
+     "pytest>=4.6; python_version >= '3.5'",
 -    "coverage >= 3.7.1, < 5.0.0",
 +    "coverage",
      "pytest-cov",
