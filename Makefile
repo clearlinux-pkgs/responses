@@ -1,5 +1,5 @@
 PKG_NAME := responses
-URL = https://files.pythonhosted.org/packages/34/d7/7dd8114013564039d64fc53b894711881a19a53e438d8a1a1559f54cbd2d/responses-0.10.16.tar.gz
+URL = https://files.pythonhosted.org/packages/57/88/f8ce5cf43226357ebf8e2a5b6ea39c7747947620f5d9de34e883c0705a10/responses-0.13.2.tar.gz
 ARCHIVES = 
 
 include ../common/Makefile.common

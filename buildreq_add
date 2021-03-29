@@ -1,8 +1,8 @@
 # This file contains additional build requirements that did not get
 # picked up automatically.  One name per line, no whitespace.
-pytest
-flake8
-coverage
-pytest-localserver
-pytest-cov
 Werkzeug
+coverage
+flake8
+pytest
+pytest-cov
+pytest-localserver
